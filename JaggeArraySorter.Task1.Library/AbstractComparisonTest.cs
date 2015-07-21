@@ -4,13 +4,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace JaggedArray.Task2
+namespace JaggeArraySorter.Task1.Library
 {
     abstract class AbstractComparisonTest
     {
-        public bool ascending = true;
+        public bool Acsending { get; set; }
 
-        protected abstract int Operation(int? pervios, int? next);
+        public AbstractComparisonTest()
+        {
+            Acsending = true;
+        }
+
+        protected abstract int Operation(int pervios, int next);
 
         public int?[] GetComparisonTargets(int[][] jaggedArray)
         {
@@ -33,7 +38,7 @@ namespace JaggedArray.Task2
                 if (target == null)
                     target = row[i];
                 else
-                    target = Operation(target, row[i]);
+                    target = Operation((int)target, row[i]);
             }
             return target;
         }

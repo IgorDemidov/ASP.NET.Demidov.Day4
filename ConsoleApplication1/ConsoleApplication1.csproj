@@ -47,6 +47,12 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\JaggeArraySorter.Task1.Library\JaggeArraySorter.Task1.Library.csproj">
+      <Project>{0f6df1c7-5f8b-4b91-979c-421d999e25e4}</Project>
+      <Name>JaggeArraySorter.Task1.Library</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

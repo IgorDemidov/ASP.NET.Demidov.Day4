@@ -4,17 +4,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace JaggedArray.Task2
+namespace JaggeArraySorter.Task1.Library
 {
-    class MaxRowElementTest: AbstractComparisonTest
+    sealed class MaxRowElementTest : AbstractComparisonTest
     {
         protected override int Operation(int previous, int current)
         {
-            if (current>previous)
-	        {
-                return current;		 
-	        }
+            if (current > previous)
+            {
+                return current;
+            }
             return previous;
         }
     }
+
 }

@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace JaggedArray.Task2
+namespace JaggeArraySorter.Task1.Library
 {
-    class SumRowElementTest : AbstractComparisonTest
+    sealed class SumRowElementTest : AbstractComparisonTest
     {
         protected override int Operation(int previous, int current)
         {
