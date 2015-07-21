@@ -68,7 +68,7 @@ namespace JaggeArraySorter.Task1.Library
 
         private static bool GetCurrentSortingNecessity(int? current, int? next, bool ascending)
         {
-            return (current!=next)&&((current > next) == ascending);
+            return (current != next) && (((current > next) == ascending) || ((next == null) && (current!=null) == ascending));
         }
 
         private static void Swap<T>(ref T left, ref T right)

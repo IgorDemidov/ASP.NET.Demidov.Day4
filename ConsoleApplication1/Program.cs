@@ -18,7 +18,8 @@ namespace ConsoleApplication1
                     Console.Write(jaggedArray[i][j] + "\t");
                 }
                 Console.WriteLine();
-			} 
+			}
+            Console.WriteLine("----------------------------------");
         }
 
         static int[][] CreateRandomJaggedArray(int minRowsCount, int maxRowsCount, int minColsCount, int maxColsCount, int minValue, int maxValue)
@@ -45,12 +46,16 @@ namespace ConsoleApplication1
       
         static void Main(string[] args)
         {
-            int[][] jaggedArray = CreateRandomJaggedArray(5, 6, 4, 8, -10, 10);
+            int[][] jaggedArray = CreateRandomJaggedArray(5, 6, 0, 4, -10, 10);
+            jaggedArray[0] = new int[0];
             PrintToConsole(jaggedArray);
-            Console.ReadLine();
-
             
 
+            JaggedArraySort.SortRowsByMaxValue(ref jaggedArray);
+            PrintToConsole(jaggedArray);
+            JaggedArraySort.SortRowsByMaxValue(ref jaggedArray, false);
+            PrintToConsole(jaggedArray);
+            Console.ReadLine();
         }
     }
 }
