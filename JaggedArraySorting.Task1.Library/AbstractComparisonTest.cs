@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace JaggedArraySorting.Task1.Library
 {
-    interface IComparisonTest
+    abstract class AbstractComparisonTest
     {
-        int Target(int[] numberSet);
+        public bool ascending = true;
+        public abstract int Target(int[] row);
     }
 }
