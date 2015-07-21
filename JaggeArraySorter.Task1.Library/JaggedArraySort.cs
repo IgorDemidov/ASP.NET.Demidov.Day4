@@ -10,29 +10,41 @@ namespace JaggeArraySorter.Task1.Library
     {
         public static void SortRowsByMaxValue(ref int[][] jaggedArray)
         {
-           MaxRowElementTest m = new MaxRowElementTest();
-           BubbleSort(ref jaggedArray, m);
-           AbstractComparisonTest k = m;
+            MaxRowElementTest comparisonTest = new MaxRowElementTest();
+            BubbleSort(ref jaggedArray, comparisonTest);
         }
 
         public static void SortRowsByMaxValue(ref int[][] jaggedArray, bool ascending)
         {
-
+            MaxRowElementTest comparisonTest = new MaxRowElementTest();
+            comparisonTest.Acsending = ascending;
+            BubbleSort(ref jaggedArray, comparisonTest);
         }
 
         public static void SortRowsByMinValue(ref int[][] jaggedArray)
         {
-
+            MinRowElementTest comparisonTest = new MinRowElementTest();
+            BubbleSort(ref jaggedArray, comparisonTest);
         }
 
         public static void SortRowsByMinValue(ref int[][] jaggedArray, bool ascending)
         {
-
+            MinRowElementTest comparisonTest = new MinRowElementTest();
+            comparisonTest.Acsending = ascending;
+            BubbleSort(ref jaggedArray, comparisonTest);
         }
 
-        public static void SortRowsByValuesSum(ref int[][] jaggedArray)
+        public static void SortRowsByValueSum(ref int[][] jaggedArray)
         {
+            SumRowElementTest comparisonTest = new SumRowElementTest();
+            BubbleSort(ref jaggedArray, comparisonTest);
+        }
 
+        public static void SortRowsByValueSum(ref int[][] jaggedArray, bool ascending)
+        {
+            SumRowElementTest comparisonTest = new SumRowElementTest();
+            comparisonTest.Acsending = ascending;
+            BubbleSort(ref jaggedArray, comparisonTest);
         }
 
         private static void BubbleSort(ref int[][] arr, AbstractComparisonTest comparisonTest)
