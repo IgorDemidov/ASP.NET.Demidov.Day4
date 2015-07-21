@@ -42,7 +42,7 @@
     <Compile Include="BubbleSort.cs" />
     <Compile Include="MaxRowElementTest.cs" />
     <Compile Include="MinRowElementTest.cs" />
-    <Compile Include="ExplorerSum.cs" />
+    <Compile Include="SumRowElementTest.cs" />
     <Compile Include="ComparisonTest.cs" />
     <Compile Include="ISort.cs" />
     <Compile Include="JaggedArraySorter.cs" />

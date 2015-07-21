@@ -6,15 +6,11 @@ using System.Threading.Tasks;
 
 namespace JaggedArray.Task2
 {
-    class MinRowElementTest : AbstractComparisonTest
+    class SumRowElementTest : AbstractComparisonTest
     {
         protected override int Operation(int previous, int current)
         {
-            if (current < previous)
-            {
-                return current;
-            }
-            return previous;
+            return previous + current;
         }
     }
 }
