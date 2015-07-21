@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace JaggedArray.Task2
 {
-    interface IRowExplorer
+    interface ISort
     {
-        int Explore(int[] row);
+        void Sort(int[][] arr, int?[] rowsTargets, bool ascending);
     }
 }
