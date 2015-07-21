@@ -9,6 +9,6 @@ namespace JaggedArraySorting.Task1.Library
     abstract class AbstractComparisonTest
     {
         public bool ascending = true;
-        public abstract int Target(int[] row);
+        public abstract int GetTarget(int[] row);
     }
 }
