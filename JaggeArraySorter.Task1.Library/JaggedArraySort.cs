@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace JaggeArraySorter.Task1.Library
 {   
-    static class JaggedArraySort
+    public static class JaggedArraySort
     {
         public static void SortRowsByMaxValue(ref int[][] jaggedArray)
         {
