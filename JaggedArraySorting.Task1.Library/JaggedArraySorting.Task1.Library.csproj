@@ -39,7 +39,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ComparisonTest.cs" />
+    <Compile Include="IComparisonTest.cs" />
     <Compile Include="Sorter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

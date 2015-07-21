@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace JaggedArraySorting.Task1.Library
 {
-    interface ComparisonTest
+    interface IComparisonTest
     {
         int Target(int[] numberSet);
     }

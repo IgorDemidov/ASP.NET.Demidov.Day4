@@ -9,7 +9,7 @@ namespace JaggedArraySorting.Task1.Library
 
     public static class Sorter
     {        
-        public static void Sort(ComparisonTest comparator)
+        public static void Sort(IComparisonTest comparator)
         {
              
 
