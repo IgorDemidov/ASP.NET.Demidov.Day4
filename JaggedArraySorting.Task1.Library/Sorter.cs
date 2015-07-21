@@ -35,16 +35,18 @@ namespace JaggedArraySorting.Task1.Library
             return converted;
         }
 
-        private static int[][] CreateResultJuggedArray( Dictionary<int, int[]> dictionary, AbstractComparisonTest test)
+        private static int[][] OderlyResultJuggedArray(Dictionary<int, int[]> dictionary, AbstractComparisonTest test)
         {
             int[][] result = new int[dictionary.Count][];
-            foreach (int[] item in dictionary.Values)
-	        {
+ 
+            for (int i = 0; i < dictionary.Count; i++)
+            {
                 if (test.ascending)
-                    result[i] = item; 		 
-	        }
+                    result[i] = dictionary.ElementAt<KeyValuePair<int, int[]>>(i).Value;
+                else
+                    result[dictionary.Count-i-1] = dictionary.ElementAt<KeyValuePair<int, int[]>>(i).Value;
+            }
 
-            
             return result;
         }
 
