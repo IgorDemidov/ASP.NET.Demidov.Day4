@@ -49,13 +49,234 @@ namespace ConsoleApplication1
             int[][] jaggedArray = CreateRandomJaggedArray(5, 6, 0, 4, -10, 10);
             jaggedArray[0] = new int[0];
             PrintToConsole(jaggedArray);
-            
 
-            JaggedArraySort.SortRowsByMaxValue(ref jaggedArray);
+            JaggedArray.Sort<int>(jaggedArray, new AscendingSumComparer());
             PrintToConsole(jaggedArray);
-            JaggedArraySort.SortRowsByMaxValue(ref jaggedArray, false);
-            PrintToConsole(jaggedArray);
+        
             Console.ReadLine();
         }
+
+        public class AscendingSumComparer : IRowComparer<int[]>
+        {
+            public int Compare(int[] first, int[] second)
+            {
+                if ((first == second)||((first.Length==0)&&(second.Length==0)))
+                    return 0;
+                if ((first == null)||(first.Length==0))           
+                    return -1;
+                if ((second == null)||(second.Length==0))
+                    return 1;
+
+                int firstSum = Sum(first);
+                int secondSum = Sum(second);
+
+                if (firstSum == secondSum)
+                    return 0;
+                if (firstSum < secondSum)
+                    return -1;
+                else return 1;
+            } 
+        }
+
+        public class DescendingSumComparer : IRowComparer<int[]>
+        {
+            public int Compare(int[] first, int[] second)
+            {
+                if ((first == second) || ((first.Length == 0) && (second.Length == 0)))
+                    return 0;
+                if ((first == null) || (first.Length == 0))
+                    return 1;
+                if ((second == null) || (second.Length == 0))
+                    return -1;
+
+                int firstSum = Sum(first);
+                int secondSum = Sum(second);
+
+                if (firstSum == secondSum)
+                    return 0;
+                if (firstSum < secondSum)
+                    return 1;
+                else return -1;
+            }
+        }
+
+        private static int Sum(int[] row)
+        {
+            int sum = 0;
+            for (int i = 0; i < row.Length; i++)
+            {
+                sum += row[i];
+            }
+            return sum;
+        }
+
+
+        public class AscendingMaxAbsValueComparer : IRowComparer<int[]>
+        {
+            public int Compare(int[] first, int[] second)
+            {
+                if ((first == second) || ((first.Length == 0) && (second.Length == 0)))
+                    return 0;
+                if ((first == null) || (first.Length == 0))
+                    return 1;
+                if ((second == null) || (second.Length == 0))
+                    return -1;
+
+                int maxAbsValueFirst = MaxAbsValue(first);
+                int maxAbsValueSecond = MaxAbsValue(second);
+
+                if (maxAbsValueFirst == maxAbsValueSecond)
+                    return 0;
+                if (maxAbsValueFirst < maxAbsValueSecond)
+                    return 1;
+                else return -1;
+            }    
+        }
+
+        public class DescendingMaxAbsValueComparer : IRowComparer<int[]>
+        {
+            public int Compare(int[] first, int[] second)
+            {
+                if ((first == second) || ((first.Length == 0) && (second.Length == 0)))
+                    return 0;
+                if ((first == null) || (first.Length == 0))
+                    return 1;
+                if ((second == null) || (second.Length == 0))
+                    return -1;
+
+                int maxAbsValueFirst = MaxAbsValue(first);
+                int maxAbsValueSecond = MaxAbsValue(second);
+
+                if (maxAbsValueFirst == maxAbsValueSecond)
+                    return 0;
+                if (maxAbsValueFirst < maxAbsValueSecond)
+                    return 1;
+                else return -1;
+            }
+        }
+
+        private static int MaxAbsValue(int[] row)
+        {
+            int maxAbsValue = Math.Abs(row[0]);
+            for (int i = 1; i < row.Length; i++)
+            {
+                if (maxAbsValue < Math.Abs(row[i]))
+                    maxAbsValue = Math.Abs(row[i]);
+            }
+            return maxAbsValue;
+        }
+
+
+        public class AscendingMaxValueComparer : IRowComparer<int[]>
+        {
+            public int Compare(int[] first, int[] second)
+            {
+                if ((first == second) || ((first.Length == 0) && (second.Length == 0)))
+                    return 0;
+                if ((first == null) || (first.Length == 0))
+                    return 1;
+                if ((second == null) || (second.Length == 0))
+                    return -1;
+
+                int maxValueFirst = MaxValue(first);
+                int maxValueSecond = MaxValue(second);
+
+                if (maxValueFirst == maxValueSecond)
+                    return 0;
+                if (maxValueFirst < maxValueSecond)
+                    return 1;
+                else return -1;
+            }
+        }
+
+        public class DescendingMaxValueComparer : IRowComparer<int[]>
+        {
+            public int Compare(int[] first, int[] second)
+            {
+                if ((first == second) || ((first.Length == 0) && (second.Length == 0)))
+                    return 0;
+                if ((first == null) || (first.Length == 0))
+                    return 1;
+                if ((second == null) || (second.Length == 0))
+                    return -1;
+
+                int maxValueFirst = MaxValue(first);
+                int maxValueSecond = MaxValue(second);
+
+                if (maxValueFirst == maxValueSecond)
+                    return 0;
+                if (maxValueFirst < maxValueSecond)
+                    return 1;
+                else return -1;
+            }
+        }
+
+        private static int MaxValue(int[] row)
+        {
+            int maxValue = row[0];
+            for (int i = 1; i < row.Length; i++)
+            {
+                if (maxValue < row[i])
+                    maxValue = row[i];
+            }
+            return maxValue;
+        }
+
+
+        public class AscendingMinValueComparer : IRowComparer<int[]>
+        {
+            public int Compare(int[] first, int[] second)
+            {
+                if ((first == second) || ((first.Length == 0) && (second.Length == 0)))
+                    return 0;
+                if ((first == null) || (first.Length == 0))
+                    return 1;
+                if ((second == null) || (second.Length == 0))
+                    return -1;
+
+                int minValueFirst = MinValue(first);
+                int minValueSecond = MinValue(second);
+
+                if (minValueFirst == minValueSecond)
+                    return 0;
+                if (minValueFirst < minValueSecond)
+                    return 1;
+                else return -1;
+            }
+        }
+
+        public class DescendingMinValueComparer : IRowComparer<int[]>
+        {
+            public int Compare(int[] first, int[] second)
+            {
+                if ((first == second) || ((first.Length == 0) && (second.Length == 0)))
+                    return 0;
+                if ((first == null) || (first.Length == 0))
+                    return 1;
+                if ((second == null) || (second.Length == 0))
+                    return -1;
+
+                int minValueFirst = MinValue(first);
+                int minValueSecond = MinValue(second);
+
+                if (minValueFirst == minValueSecond)
+                    return 0;
+                if (minValueFirst < minValueSecond)
+                    return 1;
+                else return -1;
+            }
+        }
+
+        private static int MinValue(int[] row)
+        {
+            int minValue = row[0];
+            for (int i = 1; i < row.Length; i++)
+            {
+                if (minValue > row[i])
+                    minValue = row[i];
+            }
+            return minValue;
+        }
+
     }
 }
