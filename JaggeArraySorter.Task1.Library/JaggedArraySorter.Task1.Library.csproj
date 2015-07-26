@@ -7,8 +7,8 @@
     <ProjectGuid>{0F6DF1C7-5F8B-4B91-979C-421D999E25E4}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>JaggeArraySorter.Task1.Library</RootNamespace>
-    <AssemblyName>JaggeArraySorter.Task1.Library</AssemblyName>
+    <RootNamespace>JaggedArraySorter.Task1.Library</RootNamespace>
+    <AssemblyName>JaggedArraySorter.Task1.Library</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -39,11 +39,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="JaggedArraySort.cs" />
-    <Compile Include="MaxRowElementTest.cs" />
-    <Compile Include="MinRowElementTest.cs" />
-    <Compile Include="SumRowElementTest.cs" />
-    <Compile Include="AbstractComparisonTest.cs" />
+    <Compile Include="JaggedArray.cs" />
+    <Compile Include="IRowComparer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

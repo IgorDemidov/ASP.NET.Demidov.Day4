@@ -5,7 +5,7 @@ VisualStudioVersion = 12.0.21005.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApplication1", "ConsoleApplication1\ConsoleApplication1.csproj", "{F3E0BEFE-9522-499B-BC0F-AEBB7C4CEBE9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JaggeArraySorter.Task1.Library", "JaggeArraySorter.Task1.Library\JaggeArraySorter.Task1.Library.csproj", "{0F6DF1C7-5F8B-4B91-979C-421D999E25E4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JaggedArraySorter.Task1.Library", "JaggeArraySorter.Task1.Library\JaggedArraySorter.Task1.Library.csproj", "{0F6DF1C7-5F8B-4B91-979C-421D999E25E4}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JaggedArraySorter.Task1.UTest", "JaggedArraySorter.Task1.UTest\JaggedArraySorter.Task1.UTest.csproj", "{391BE6C0-95B5-4540-ABA3-25AAE1DD276C}"
 EndProject

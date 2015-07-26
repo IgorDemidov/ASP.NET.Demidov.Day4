@@ -4,15 +4,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace JaggeArraySorter.Task1.Library
+namespace JaggedArraySorter.Task1.Library
 {   
     public static class JaggedArray
     {
         public static void Sort<T>(T[][] jaggedArray, IRowComparer<T[]> comparer)
         {
-            if (jaggedArray == null)
+            
+            if (jaggedArray==null)
             {
-                throw new ArgumentException(string.Format("Expecting jaggedArray to be {0}[][]", typeof(T).GetType().Name));
+                throw new ArgumentNullException(string.Format("Expecting jaggedArray to be {0}[][]", typeof(T).GetType().Name));
             }
             BubbleSort<T>(ref jaggedArray, comparer);
         }

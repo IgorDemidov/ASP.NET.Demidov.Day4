@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace JaggeArraySorter.Task1.Library
+namespace JaggedArraySorter.Task1.Library
 {
     public interface IRowComparer<T>
     {

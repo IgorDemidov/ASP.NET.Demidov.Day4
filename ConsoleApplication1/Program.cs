@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using JaggeArraySorter.Task1.Library;
+using JaggedArraySorter.Task1.Library;
 
 namespace ConsoleApplication1
 {
@@ -13,11 +13,17 @@ namespace ConsoleApplication1
         {
             for (int i = 0; i < jaggedArray.Length; i++)
 			{
-                for (int j = 0; j < jaggedArray[i].Length; j++)
-			    {
-                    Console.Write(jaggedArray[i][j] + "\t");
+                if (jaggedArray[i] == null)
+                {
+                    Console.WriteLine();
+                    continue;
                 }
-                Console.WriteLine();
+                    for (int j = 0; j < jaggedArray[i].Length; j++)
+                    {
+                        Console.Write(jaggedArray[i][j] + "\t");
+                    }
+                    Console.WriteLine();
+                
 			}
             Console.WriteLine("----------------------------------");
         }
@@ -46,8 +52,20 @@ namespace ConsoleApplication1
       
         static void Main(string[] args)
         {
-            int[][] jaggedArray = CreateRandomJaggedArray(5, 6, 0, 4, -10, 10);
-            jaggedArray[0] = new int[0];
+            //int[][] jaggedArray = CreateRandomJaggedArray(5, 6, 0, 4, -10, 10);
+            //jaggedArray[0] = new int[0];
+            int[][] jaggedArray = new int[][]{
+                new int[]{1, 3, -6, 8, 9},
+                new int[]{-2, 4, 3, 1},
+                new int[0],
+                null,
+                null,
+                new int[]{1, -3, 6, -8},
+                new int[0],
+                null,
+                new int[]{-15, 5, 4, 17},
+            };
+            
             PrintToConsole(jaggedArray);
 
             JaggedArray.Sort<int>(jaggedArray, new AscendingSumComparer());
@@ -60,12 +78,17 @@ namespace ConsoleApplication1
         {
             public int Compare(int[] first, int[] second)
             {
-                if ((first == second)||((first.Length==0)&&(second.Length==0)))
-                    return 0;
-                if ((first == null)||(first.Length==0))           
-                    return -1;
-                if ((second == null)||(second.Length==0))
+                
+                if ((first == null)||(first.Length==0))
+                {
+                    if ((second == null) || (second.Length == 0))
+                        return 0;
+                    else
+                        return -1;
+                }
+                if ((second == null) || (second.Length == 0))
                     return 1;
+             
 
                 int firstSum = Sum(first);
                 int secondSum = Sum(second);
@@ -82,10 +105,13 @@ namespace ConsoleApplication1
         {
             public int Compare(int[] first, int[] second)
             {
-                if ((first == second) || ((first.Length == 0) && (second.Length == 0)))
-                    return 0;
                 if ((first == null) || (first.Length == 0))
-                    return 1;
+                {
+                    if ((second == null) || (second.Length == 0))
+                        return 0;
+                    else
+                        return 1;
+                }
                 if ((second == null) || (second.Length == 0))
                     return -1;
 
@@ -115,12 +141,15 @@ namespace ConsoleApplication1
         {
             public int Compare(int[] first, int[] second)
             {
-                if ((first == second) || ((first.Length == 0) && (second.Length == 0)))
-                    return 0;
                 if ((first == null) || (first.Length == 0))
-                    return 1;
+                {
+                    if ((second == null) || (second.Length == 0))
+                        return 0;
+                    else
+                        return -1;
+                }
                 if ((second == null) || (second.Length == 0))
-                    return -1;
+                    return 1;
 
                 int maxAbsValueFirst = MaxAbsValue(first);
                 int maxAbsValueSecond = MaxAbsValue(second);
@@ -137,10 +166,13 @@ namespace ConsoleApplication1
         {
             public int Compare(int[] first, int[] second)
             {
-                if ((first == second) || ((first.Length == 0) && (second.Length == 0)))
-                    return 0;
                 if ((first == null) || (first.Length == 0))
-                    return 1;
+                {
+                    if ((second == null) || (second.Length == 0))
+                        return 0;
+                    else
+                        return 1;
+                }
                 if ((second == null) || (second.Length == 0))
                     return -1;
 
@@ -171,12 +203,15 @@ namespace ConsoleApplication1
         {
             public int Compare(int[] first, int[] second)
             {
-                if ((first == second) || ((first.Length == 0) && (second.Length == 0)))
-                    return 0;
                 if ((first == null) || (first.Length == 0))
-                    return 1;
+                {
+                    if ((second == null) || (second.Length == 0))
+                        return 0;
+                    else
+                        return -1;
+                }
                 if ((second == null) || (second.Length == 0))
-                    return -1;
+                    return 1;
 
                 int maxValueFirst = MaxValue(first);
                 int maxValueSecond = MaxValue(second);
@@ -193,10 +228,13 @@ namespace ConsoleApplication1
         {
             public int Compare(int[] first, int[] second)
             {
-                if ((first == second) || ((first.Length == 0) && (second.Length == 0)))
-                    return 0;
                 if ((first == null) || (first.Length == 0))
-                    return 1;
+                {
+                    if ((second == null) || (second.Length == 0))
+                        return 0;
+                    else
+                        return 1;
+                }
                 if ((second == null) || (second.Length == 0))
                     return -1;
 
@@ -227,12 +265,15 @@ namespace ConsoleApplication1
         {
             public int Compare(int[] first, int[] second)
             {
-                if ((first == second) || ((first.Length == 0) && (second.Length == 0)))
-                    return 0;
                 if ((first == null) || (first.Length == 0))
-                    return 1;
+                {
+                    if ((second == null) || (second.Length == 0))
+                        return 0;
+                    else
+                        return -1;
+                }
                 if ((second == null) || (second.Length == 0))
-                    return -1;
+                    return 1;
 
                 int minValueFirst = MinValue(first);
                 int minValueSecond = MinValue(second);
@@ -249,10 +290,13 @@ namespace ConsoleApplication1
         {
             public int Compare(int[] first, int[] second)
             {
-                if ((first == second) || ((first.Length == 0) && (second.Length == 0)))
-                    return 0;
                 if ((first == null) || (first.Length == 0))
-                    return 1;
+                {
+                    if ((second == null) || (second.Length == 0))
+                        return 0;
+                    else
+                        return 1;
+                }
                 if ((second == null) || (second.Length == 0))
                     return -1;
 

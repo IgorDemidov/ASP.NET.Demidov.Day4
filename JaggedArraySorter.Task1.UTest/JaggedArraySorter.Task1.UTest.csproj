@@ -53,6 +53,12 @@
     <Compile Include="UnitTest1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\JaggeArraySorter.Task1.Library\JaggedArraySorter.Task1.Library.csproj">
+      <Project>{0f6df1c7-5f8b-4b91-979c-421d999e25e4}</Project>
+      <Name>JaggedArraySorter.Task1.Library</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
       <ItemGroup>
