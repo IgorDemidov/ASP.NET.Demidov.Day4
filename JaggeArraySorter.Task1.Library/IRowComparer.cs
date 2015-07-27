@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace JaggedArraySorter.Task1.Library
 {
-    public interface IRowComparer<T>
+    public interface IRowComparer
     {
-        int Compare(T first, T second);
+        int Compare(int[] first, int[] second);
     }
 }

@@ -8,17 +8,39 @@ namespace JaggedArraySorter.Task1.Library
 {   
     public static class JaggedArray
     {
-        public static void Sort<T>(T[][] jaggedArray, IRowComparer<T[]> comparer)
+        public static void Sort(int[][] jaggedArray, IRowComparer comparer)
         {
-            
             if (jaggedArray==null)
             {
-                throw new ArgumentNullException(string.Format("Expecting jaggedArray to be {0}[][]", typeof(T).GetType().Name));
+                throw new ArgumentNullException(string.Format("Expecting jaggedArray to be int[][]"));
             }
-            BubbleSort<T>(ref jaggedArray, comparer);
+            BubbleSort(ref jaggedArray, comparer);
         }
 
-        private static void BubbleSort<T>(ref T[][] jaggedArray, IRowComparer<T[]> comparer)
+        public static void Sort(int[][] jaggedArray, RowCompareMethodDelegate compareMethod)
+        {
+            IRowComparer comparer = new DelegateCompareProvider(compareMethod);
+            Sort(jaggedArray, comparer);
+        }
+       
+        public delegate int RowCompareMethodDelegate(int[] first, int[] second) ;
+
+        private class DelegateCompareProvider : IRowComparer
+        {
+            RowCompareMethodDelegate delegateCompare;
+
+            public int Compare(int[] first, int[] second)
+            {
+                return delegateCompare(first, second);
+            }
+
+            public DelegateCompareProvider(RowCompareMethodDelegate compareMethod)
+            {
+                delegateCompare = compareMethod;
+            }
+        }
+
+        private static void BubbleSort(ref int[][] jaggedArray, IRowComparer comparer)
         {
             for (int j = 0; j < jaggedArray.Length - 1; j++)
             {
@@ -26,7 +48,7 @@ namespace JaggedArraySorter.Task1.Library
                 {
                     if (comparer.Compare(jaggedArray[i], jaggedArray[i + 1]) == 1)
                     {
-                        Swap<T[]>(ref jaggedArray[i], ref jaggedArray[i + 1]);
+                        Swap<int[]>(ref jaggedArray[i], ref jaggedArray[i + 1]);
                     }
                 }
             }

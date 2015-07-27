@@ -9,7 +9,7 @@ namespace JaggedArraySorter.Task1.UTest
     [TestClass]
     public class JaggedArraySorterTest
     {
-        public class AscendingSumComparer : IRowComparer<int[]>
+        public class AscendingSumComparer : IRowComparer
         {
             public int Compare(int[] first, int[] second)
             {
@@ -36,7 +36,7 @@ namespace JaggedArraySorter.Task1.UTest
             }
         }
 
-        public class DescendingSumComparer : IRowComparer<int[]>
+        public class DescendingSumComparer : IRowComparer
         {
             public int Compare(int[] first, int[] second)
             {
@@ -72,7 +72,7 @@ namespace JaggedArraySorter.Task1.UTest
         }
 
 
-        public class AscendingMaxAbsValueComparer : IRowComparer<int[]>
+        public class AscendingMaxAbsValueComparer : IRowComparer
         {
             public int Compare(int[] first, int[] second)
             {
@@ -97,7 +97,7 @@ namespace JaggedArraySorter.Task1.UTest
             }
         }
 
-        public class DescendingMaxAbsValueComparer : IRowComparer<int[]>
+        public class DescendingMaxAbsValueComparer : IRowComparer
         {
             public int Compare(int[] first, int[] second)
             {
@@ -161,7 +161,7 @@ namespace JaggedArraySorter.Task1.UTest
                 new int[]{1, 3, -6, 8, 9},
             };
 
-            JaggedArray.Sort<int>(actual, new AscendingSumComparer());
+            JaggedArray.Sort(actual, new AscendingSumComparer());
 
             Assert.IsTrue(IsJaggedArraysEqauls(expected, actual));
         }
@@ -201,7 +201,7 @@ namespace JaggedArraySorter.Task1.UTest
         public void Sort_WithAscendingSumComparer_ArgumentException()
         {
             int[][] actual = null;
-            JaggedArray.Sort<int>(actual, new AscendingSumComparer());
+            JaggedArray.Sort(actual, new AscendingSumComparer());
         }
 
     }

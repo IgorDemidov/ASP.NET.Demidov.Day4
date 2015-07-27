@@ -68,13 +68,13 @@ namespace ConsoleApplication1
             
             PrintToConsole(jaggedArray);
 
-            JaggedArray.Sort<int>(jaggedArray, new AscendingSumComparer());
+            JaggedArray.Sort(jaggedArray, new AscendingSumComparer());
             PrintToConsole(jaggedArray);
         
             Console.ReadLine();
         }
 
-        public class AscendingSumComparer : IRowComparer<int[]>
+        public class AscendingSumComparer : IRowComparer
         {
             public int Compare(int[] first, int[] second)
             {
@@ -101,7 +101,7 @@ namespace ConsoleApplication1
             } 
         }
 
-        public class DescendingSumComparer : IRowComparer<int[]>
+        public class DescendingSumComparer : IRowComparer
         {
             public int Compare(int[] first, int[] second)
             {
@@ -137,7 +137,7 @@ namespace ConsoleApplication1
         }
 
 
-        public class AscendingMaxAbsValueComparer : IRowComparer<int[]>
+        public class AscendingMaxAbsValueComparer : IRowComparer
         {
             public int Compare(int[] first, int[] second)
             {
@@ -162,7 +162,7 @@ namespace ConsoleApplication1
             }    
         }
 
-        public class DescendingMaxAbsValueComparer : IRowComparer<int[]>
+        public class DescendingMaxAbsValueComparer : IRowComparer
         {
             public int Compare(int[] first, int[] second)
             {
@@ -199,7 +199,7 @@ namespace ConsoleApplication1
         }
 
 
-        public class AscendingMaxValueComparer : IRowComparer<int[]>
+        public class AscendingMaxValueComparer : IRowComparer
         {
             public int Compare(int[] first, int[] second)
             {
@@ -224,7 +224,7 @@ namespace ConsoleApplication1
             }
         }
 
-        public class DescendingMaxValueComparer : IRowComparer<int[]>
+        public class DescendingMaxValueComparer : IRowComparer
         {
             public int Compare(int[] first, int[] second)
             {
@@ -261,7 +261,7 @@ namespace ConsoleApplication1
         }
 
 
-        public class AscendingMinValueComparer : IRowComparer<int[]>
+        public class AscendingMinValueComparer : IRowComparer
         {
             public int Compare(int[] first, int[] second)
             {
@@ -286,7 +286,7 @@ namespace ConsoleApplication1
             }
         }
 
-        public class DescendingMinValueComparer : IRowComparer<int[]>
+        public class DescendingMinValueComparer : IRowComparer
         {
             public int Compare(int[] first, int[] second)
             {
