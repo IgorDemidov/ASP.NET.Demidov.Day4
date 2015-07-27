@@ -7,7 +7,7 @@ using System.Collections;
 namespace JaggedArraySorter.Task1.UTest
 {
     [TestClass]
-    public class UnitTest1
+    public class JaggedArraySorterTest
     {
         public class AscendingSumComparer : IRowComparer<int[]>
         {
